@@ -7,16 +7,7 @@ import { SharedModule } from 'app/shared/shared.module';
 import { RouterModule } from '@angular/router';
 
 import { AtlpSearchBarModule } from '@atlp/components';
-
-import { 
-  AppointmentTableComponent,
-  NewAppointmentComponent,
-  AppointementChargesComponent,
-  AppointementReportComponent,
-  AppointmentFileComponent,
-  AddAwbComponent,
-  AddDriverComponent
-} from './components';
+ 
 
 
 const routes = [
@@ -29,13 +20,7 @@ const routes = [
 @NgModule({
   declarations: [
     AppointmentsComponent,
-    AppointmentTableComponent,
-    NewAppointmentComponent,
-    AppointementChargesComponent,
-    AppointementReportComponent,
-    AppointmentFileComponent,
-    AddAwbComponent,
-    AddDriverComponent
+ 
   ],
   imports: [
     RouterModule.forChild(routes),
