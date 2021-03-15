@@ -1,5 +1,5 @@
 module.exports = {
-    displayName: 'menu',
+    displayName: 'header',
     preset: '../../jest.preset.js',
     setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
     globals: {
@@ -14,7 +14,7 @@ module.exports = {
             },
         },
     },
-    coverageDirectory: '../../coverage/apps/menu',
+    coverageDirectory: '../../coverage/apps/header',
     snapshotSerializers: [
         'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
         'jest-preset-angular/build/AngularSnapshotSerializer.js',

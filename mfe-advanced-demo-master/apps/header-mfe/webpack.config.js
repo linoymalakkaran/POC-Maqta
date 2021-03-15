@@ -9,7 +9,7 @@ sharedMappings.register(
 
 module.exports = {
     output: {
-        uniqueName: "menu-mfe"
+        uniqueName: "header-mfe"
     },
     optimization: {
         // Only needed to bypass a temporary bug
@@ -18,10 +18,10 @@ module.exports = {
     plugins: [
         new ModuleFederationPlugin({
 
-            name: "menu",
-            filename: "menuRemoteEntry.js",
+            name: "header",
+            filename: "headerRemoteEntry.js",
             exposes: {
-                './menu-route.module': './apps/menu-mfe/src/app/menu/menu-route.module.ts'
+                './header-route.module': './apps/header-mfe/src/app/header/header-route.module.ts'
             },
 
             shared: {

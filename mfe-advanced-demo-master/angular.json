@@ -223,6 +223,204 @@
                     }
                 }
             }
+        },
+        "menu-mfe": {
+            "projectType": "application",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "style": "scss"
+                }
+            },
+            "root": "apps/menu-mfe",
+            "sourceRoot": "apps/menu-mfe/src",
+            "prefix": "mfe-nx-demo",
+            "architect": {
+                "build": {
+                    "builder": "ngx-build-plus:browser",
+                    "options": {
+                        "outputPath": "dist/apps/menu-mfe",
+                        "index": "apps/menu-mfe/src/index.html",
+                        "main": "apps/menu-mfe/src/main.ts",
+                        "polyfills": "apps/menu-mfe/src/polyfills.ts",
+                        "tsConfig": "apps/menu-mfe/tsconfig.app.json",
+                        "aot": true,
+                        "assets": [
+                            "apps/menu-mfe/src/favicon.ico",
+                            "apps/menu-mfe/src/assets"
+                        ],
+                        "styles": [
+                            "apps/menu-mfe/src/styles.scss"
+                        ],
+                        "scripts": [],
+                        "extraWebpackConfig": "apps/menu-mfe/webpack.config.js"
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/menu-mfe/src/environments/environment.ts",
+                                    "with": "apps/menu-mfe/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ],
+                            "extraWebpackConfig": "apps/menu-mfe/webpack.prod.config.js"
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "ngx-build-plus:dev-server",
+                    "options": {
+                        "browserTarget": "menu-mfe:build",
+                        "extraWebpackConfig": "apps/menu-mfe/webpack.config.js",
+                        "port": 4301
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "menu-mfe:build:production",
+                            "extraWebpackConfig": "apps/menu-mfe/webpack.prod.config.js"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "menu-mfe:build"
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "apps/menu-mfe/src/**/*.ts"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "ngx-build-plus:karma",
+                    "options": {
+                        "jestConfig": "apps/menu-mfe/jest.config.js",
+                        "passWithNoTests": true,
+                        "extraWebpackConfig": "apps/menu-mfe/webpack.config.js"
+                    }
+                }
+            }
+        },
+        "header-mfe": {
+            "projectType": "application",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "style": "scss"
+                }
+            },
+            "root": "apps/header-mfe",
+            "sourceRoot": "apps/header-mfe/src",
+            "prefix": "mfe-nx-demo",
+            "architect": {
+                "build": {
+                    "builder": "ngx-build-plus:browser",
+                    "options": {
+                        "outputPath": "dist/apps/header-mfe",
+                        "index": "apps/header-mfe/src/index.html",
+                        "main": "apps/header-mfe/src/main.ts",
+                        "polyfills": "apps/header-mfe/src/polyfills.ts",
+                        "tsConfig": "apps/header-mfe/tsconfig.app.json",
+                        "aot": true,
+                        "assets": [
+                            "apps/header-mfe/src/favicon.ico",
+                            "apps/header-mfe/src/assets"
+                        ],
+                        "styles": [
+                            "apps/header-mfe/src/styles.scss"
+                        ],
+                        "scripts": [],
+                        "extraWebpackConfig": "apps/header-mfe/webpack.config.js"
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/header-mfe/src/environments/environment.ts",
+                                    "with": "apps/header-mfe/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ],
+                            "extraWebpackConfig": "apps/header-mfe/webpack.prod.config.js"
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "ngx-build-plus:dev-server",
+                    "options": {
+                        "browserTarget": "header-mfe:build",
+                        "extraWebpackConfig": "apps/header-mfe/webpack.config.js",
+                        "port": 4302
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "header-mfe:build:production",
+                            "extraWebpackConfig": "apps/header-mfe/webpack.prod.config.js"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "header-mfe:build"
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "apps/header-mfe/src/**/*.ts"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "ngx-build-plus:karma",
+                    "options": {
+                        "jestConfig": "apps/header-mfe/jest.config.js",
+                        "passWithNoTests": true,
+                        "extraWebpackConfig": "apps/header-mfe/webpack.config.js"
+                    }
+                }
+            }
         }
     },
     "cli": {

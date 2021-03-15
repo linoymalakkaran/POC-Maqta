@@ -1,1 +1,0 @@
-export * from './heavy-duty/heavy-duty.component';

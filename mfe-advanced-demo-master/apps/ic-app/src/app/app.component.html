@@ -18,6 +18,18 @@
                    routerLinkActive="active">
                     Counter MFE
                 </a>
+                <a *ngIf="(auth$ | async)?.authenticated"
+                   class="nav-link"
+                   routerLink="/header"
+                   routerLinkActive="active">
+                    Header MFE
+                </a>
+                <a *ngIf="(auth$ | async)?.authenticated"
+                   class="nav-link"
+                   routerLink="/menu"
+                   routerLinkActive="active">
+                    Menu MFE
+                </a>
                 <a *ngIf="!(auth$ | async)?.authenticated"
                    class="nav-link"
                    routerLink="/login"
