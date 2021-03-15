@@ -1,1 +1,1 @@
-declare module 'counter-remote/counter-route.module'
+declare module 'header-remote/header-route.module'

@@ -21,4 +21,16 @@ export const APP_ROUTES: Routes = [
         loadChildren: () => import('counter-remote/counter-route.module').then((m) => m.CounterRouteModule),
         canActivate: [AuthGuard],
     },
+    {
+        path: 'header',
+        // Lazy loaded remote module
+        loadChildren: () => import('header-remote/header-route.module').then((m) => m.HeaderRouteModule),
+        canActivate: [AuthGuard],
+    },
+    {
+        path: 'menu',
+        // Lazy loaded remote module
+        loadChildren: () => import('menu-remote/menu-route.module').then((m) => m.MenuRouteModule),
+        canActivate: [AuthGuard],
+    },
 ];
