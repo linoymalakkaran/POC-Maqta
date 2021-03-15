@@ -1,0 +1,331 @@
+<div class="drawer-wrap Statistics" fxFlex fxLayout="column" fxLayoutAlign=" none">
+
+    <div class="drawer-header" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="drawer-info">
+            <span class="drawer-title">Statistics Reports</span>
+            <span class="drawer-percent">32% complete</span>
+        </div>
+        <atlp-progress-bar></atlp-progress-bar>
+    </div>
+    <div class="drawer-body">
+        <!-- Statistics accordion -->
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <span class="panel-title">Statistics</span>
+                        <span class="panel-info">1 of 3 complete</span>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
+        </mat-accordion>
+        <!-- Grouping and metrics -->
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <span class="panel-title">GROUPING AND METRICS</span>
+                        <span class="panel-info">1 of 3 complete</span>
+                    </mat-panel-description>
+                    <atlp-progress-bar class="panel-small"></atlp-progress-bar>
+                </mat-expansion-panel-header>
+                <div class="panel-body">
+                    <form [formGroup]="FormGroupOne">
+                        <div class="panel-header" fxLayout="row" fxLayoutAlign="start center">
+                            <h2 class="block-title panel-title">Period</h2>
+                        </div>
+
+                        <div class="select-wrap" fxLayout="row">
+                            <p class="pre-select-label">Compare</p>
+                            <mat-slide-toggle formControlName="compare">ON</mat-slide-toggle>
+                        </div>
+                        <div fxLayout="row wrap" fxLayoutGap="40px" fxLayoutGap.xs="0px">
+                            <div class="field-wrap bg" fxFlex="21" fxFlex.xs="100" fxLayout="column">
+                                <label for="#" class="field-label">From</label>
+                                <div class="field-input-wrap">
+                                    <input formControlName="fromOne" [matDatepicker]="from1" (focus)="from1.open()"
+                                        readonly required />
+                                    <mat-icon svgIcon="data-icon-white" aria-hidden="false"></mat-icon>
+                                </div>
+                                <mat-datepicker #from1></mat-datepicker>
+                            </div>
+                            <div class="field-wrap bg" fxFlex="21" fxFlex.xs="100" fxLayout="column">
+                                <label for="#" class="field-label">To</label>
+                                <div class="field-input-wrap">
+                                    <input formControlName="toOne" [matDatepicker]="to1" (focus)="to1.open()" readonly
+                                        required />
+                                    <mat-icon svgIcon="data-icon-white" aria-hidden="false"></mat-icon>
+                                </div>
+                                <mat-datepicker #to1></mat-datepicker>
+                            </div>
+                            <div class="field-wrap bg" fxFlex="21" fxFlex.xs="100" fxLayout="column">
+                                <label for="#" class="field-label">From</label>
+                                <div class="field-input-wrap">
+                                    <input formControlName="fromTwo" [matDatepicker]="from2" (focus)="from2.open()"
+                                        readonly required />
+                                    <mat-icon svgIcon="data-icon-white" aria-hidden="false"></mat-icon>
+                                </div>
+                                <mat-datepicker #from2></mat-datepicker>
+                            </div>
+                            <div class="field-wrap bg" fxFlex="21" fxFlex.xs="100" fxLayout="column">
+                                <label for="#" class="field-label">To</label>
+                                <div class="field-input-wrap">
+                                    <input formControlName="toTwo" [matDatepicker]="to2" (focus)="to2.open()" readonly
+                                        required />
+                                    <mat-icon svgIcon="data-icon-white" aria-hidden="false"></mat-icon>
+                                </div>
+                                <mat-datepicker #to2></mat-datepicker>
+                            </div>
+                        </div>
+                        <div class="panel-row">
+                            <div class="panel-header grouping-header" fxLayout="row" fxLayoutAlign="start center">
+                                <h2 class="block-title panel-title">GROUPING</h2>
+                            </div>
+                            <div fxLayout="row wrap" fxLayoutGap="43px" fxLayoutGap.xs="0px">
+                                <div class="light-purple-select select-row" fxLayout="row wrap"
+                                    fxLayoutAlign="start center" fxFlex="20" fxFlex.xs="100" fxFlex.sm="100">
+                                    <mat-radio-group fxLayout="row wrap" fxLayoutAlign="space-between center"
+                                        fxFlex="100">
+                                        <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="25">
+                                            <mat-radio-button id="Serviced Port"
+                                                (click)="checkboxupdate($event, 'Serviced Port')" value="">
+                                                Serviced Port
+                                            </mat-radio-button>
+                                        </div>
+                                    </mat-radio-group>
+                                </div>
+                                <div class="light-purple-select select-row" fxLayout="row wrap"
+                                    fxLayoutAlign="start center" fxFlex="20" fxFlex.xs="100" fxFlex.sm="100">
+                                    <mat-radio-group fxLayout="row wrap" fxLayoutAlign="space-between center"
+                                        fxFlex="100">
+                                        <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="25">
+                                            <mat-radio-button id="Geographical Area"
+                                                (click)="checkboxupdate($event, 'Geographical Area')" value=""
+                                                checked="false">Geographical Area
+                                            </mat-radio-button>
+                                        </div>
+                                    </mat-radio-group>
+                                </div>
+                                <div class="light-purple-select select-row" fxLayout="row wrap"
+                                    fxLayoutAlign="start center" fxFlex="20" fxFlex.xs="100" fxFlex.sm="100">
+                                    <mat-radio-group fxLayout="row wrap" fxLayoutAlign="space-between center"
+                                        fxFlex="100">
+                                        <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="25">
+                                            <mat-radio-button value="" checked="false" id="Location"
+                                                (click)="checkboxupdate($event, 'Location')">Location</mat-radio-button>
+                                        </div>
+                                    </mat-radio-group>
+                                </div>
+                                <div class="light-purple-select select-row" fxLayout="row wrap"
+                                    fxLayoutAlign="start center" fxFlex="20" fxFlex.xs="100" fxFlex.sm="100">
+                                    <mat-radio-group fxLayout="row wrap" fxLayoutAlign="space-between center"
+                                        fxFlex="100">
+                                        <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="25">
+                                            <mat-radio-button value="" checked="false" id="Full Empty"
+                                                (click)="checkboxupdate($event, 'Full Empty')">Full Empty
+                                            </mat-radio-button>
+                                        </div>
+                                    </mat-radio-group>
+                                </div>
+                                <div class="light-purple-select select-row" fxLayout="row wrap"
+                                    fxLayoutAlign="start center" fxFlex="20" fxFlex.xs="100" fxFlex.sm="100">
+                                    <mat-radio-group fxLayout="row wrap" fxLayoutAlign="space-between center"
+                                        fxFlex="100">
+                                        <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="25">
+                                            <mat-radio-button value="" checked="false" id="Country"
+                                                (click)="checkboxupdate($event, 'Country')">Country</mat-radio-button>
+                                        </div>
+                                    </mat-radio-group>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="panel-row">
+                            <div class="panel-header" fxLayout="row" fxLayoutAlign="start center">
+                                <h2 class="block-title panel-title">Metrics</h2>
+                            </div>
+                            <div fxLayout="column wrap">
+                                <div class="light-purple-select select-row" fxLayout="row wrap"
+                                    fxLayoutAlign="start center" fxFlex="20">
+                                    <mat-radio-group fxLayout="row wrap" fxLayoutAlign="space-between center"
+                                        fxFlex="100">
+                                        <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="25">
+                                            <mat-radio-button value="" id="Loading"
+                                                (click)="changeLoading($event,'Loading')">Loading
+                                            </mat-radio-button>
+                                        </div>
+                                    </mat-radio-group>
+                                </div>
+                                <div class="light-purple-select" fxLayout="row wrap" fxLayoutAlign="start center"
+                                    fxFlex="20">
+                                    <mat-radio-group fxLayout="row wrap" fxLayoutAlign="space-between center"
+                                        fxFlex="100">
+                                        <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="25">
+                                            <mat-radio-button value="" id="Unloading"
+                                                (click)="changeLoading($event,'Unloading')">Unloading
+                                            </mat-radio-button>
+                                        </div>
+                                    </mat-radio-group>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+        <!--  Geographical filters-->
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <span class="panel-title">Geographical filters</span>
+                        <span class="panel-info">1 of 3 complete</span>
+                    </mat-panel-description>
+                    <atlp-progress-bar class="panel-small"></atlp-progress-bar>
+                </mat-expansion-panel-header>
+                <div class="panel-body">
+                    <form [formGroup]="FormGroupTwo">
+                        <div class="panel-header" fxLayout="row" fxLayoutAlign="start center">
+                            <h2 class="block-title panel-title">Geographical Regions</h2>
+                        </div>
+                        <div fxLayout="row wrap" fxLayoutGap="0px" fxLayoutGap.xs="0px">
+                            <div fxFlex="20" fxFlex.lt-xl="30" fxFlex.lg="25" fxFlex.xs="100" fxFlex.sm="100"
+                                *ngFor="let Region of GeographicalRegions; index as i;">
+                                <div class="light-purple-select select-row" fxLayout="row wrap"
+                                    fxLayoutAlign="start center">
+                                    <mat-radio-group fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="100">
+                                        <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="100">
+                                            <mat-radio-button [id]="Region.Name"
+                                                (click)="checkboxupdate($event, Region.Name)" value="" checked="false">
+                                                {{Region.Name}}
+                                                <span class="second-name1"> {{Region.SecondName}}</span>
+                                            </mat-radio-button>
+                                        </div>
+                                        <div fxFlex="7" fxFlex.lt-xl="8" fxFlex.sm="3" fxFlex.xs="4"></div>
+                                        <div fxFlex="75" fxFlex.xs="50" class="mat-radio-label-content secondName">
+                                            {{Region.SecondName}}
+                                        </div>
+
+                                    </mat-radio-group>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="region-select-row" fxLayout="row wrap" fxLayoutGap="50px">
+                            <div class="dropdown-col bg" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="20%"
+                                fxLayout="column">
+                                <label for="#" class="dropdown-label">Countries</label>
+                                <mat-select placeholder="Select" class="dropdown-select bg"
+                                    panelClass="panel-custom bg">
+                                    <mat-option [value]="'United States of America'">
+                                        United
+                                    </mat-option>
+                                    <mat-option [value]="'United Kingdom'">
+                                        United Kingdom
+                                    </mat-option>
+                                </mat-select>
+                            </div>
+                            <div class="dropdown-col bg" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="20%"
+                                fxLayout="column">
+                                <label for="#" class="dropdown-label">Location</label>
+                                <mat-select placeholder="Select" class="dropdown-select bg"
+                                    panelClass="panel-custom bg">
+                                    <mat-option [value]="'United States of America'">
+                                        United
+                                    </mat-option>
+                                    <mat-option [value]="'United Kingdom'">
+                                        United Kingdom
+                                    </mat-option>
+                                </mat-select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+        <!--  Geographical filters-->
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <span class="panel-title">Other Filters</span>
+                        <span class="panel-info">1 of 3 complete</span>
+                    </mat-panel-description>
+                    <atlp-progress-bar class="panel-small"></atlp-progress-bar>
+                </mat-expansion-panel-header>
+                <div class="panel-body" fxLayout="column">
+                    <div fxFlex="100" fxLayout="row wrap">
+                        <div class="light-purple-select select-row" fxLayout="row wrap" fxLayoutAlign="start center"
+                            fxFlex="25" fxFlex.xs="100">
+                            <div fxFlex="100" class="mat-radio-label-content radio-title">
+                                Full / Empty
+                            </div>
+                            <mat-radio-group fxLayout="row wrap" fxLayoutAlign="space-between center" fxFlex="100">
+                                <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="100">
+                                    <mat-radio-button id="Full" (click)="fullemptychange($event, 'Full')" value="full">
+                                        Full
+                                    </mat-radio-button>
+                                </div>
+                                <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="100">
+                                    <mat-radio-button value="empty" id="Empty"
+                                        (click)="fullemptychange($event, 'Empty')">
+                                        Empty</mat-radio-button>
+                                </div>
+                            </mat-radio-group>
+                        </div>
+                        <div class="dropdown-col bg container-select" fxFlex="100%" fxFlex.gt-xs="48%"
+                            fxFlex.gt-sm="25%" fxLayout="column">
+                            <label for="#" class="dropdown-label">Container</label>
+                            <mat-select class="dropdown-select bg" panelClass="panel-custom bg" placeholder="Select">
+                                <mat-option [value]="'United States of America'">
+                                    United
+                                </mat-option>
+                                <mat-option [value]="'United Kingdom'">
+                                    United Kingdom
+                                </mat-option>
+                            </mat-select>
+                        </div>
+                    </div>
+                    <div fxFlex="100" fxLayout="row">
+                        <div class="light-purple-select select-row" fxLayout="row wrap" fxLayoutAlign="start center"
+                            fxFlex="100">
+                            <div fxFlex="100" class="mat-radio-label-content radio-title">
+                                Cargo Type
+                            </div>
+                            <div fxLayout="row wrap" fxLayoutGap="0px" fxLayoutGap.xs="0px" fxFlex="100">
+                                <div fxFlex="20" fxFlex.lt-xl="30" fxFlex.lg="25" fxFlex.xs="100" fxFlex.sm="100"
+                                    *ngFor="let type of CargoTypes; index as i;">
+                                    <mat-radio-group fxLayout="row wrap" fxLayoutAlign="space-between center"
+                                        fxFlex="25">
+                                        <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="25">
+                                            <mat-radio-button [id]="type.Name"
+                                                (click)="checkboxupdate($event, type.Name)" value="" checked="false">
+                                                {{type.Name}}
+                                            </mat-radio-button>
+                                        </div>
+                                    </mat-radio-group>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>
+
+<div class="panel-nav" fxLayout="column" fxLayoutAlign="space-between center">
+    <!-- close btn -->
+    <button class="round-btn panel-btn" (click)="toggleSidebarOpen(SidebarName.informationStatistics)">
+        <mat-icon class="small-close-btn" svgIcon="close-white-icon" aria-hidden="false"></mat-icon>
+    </button>
+    <!-- soc-wrap -->
+    <div class="soc-wrap" fxLayout="column" fxLayoutAlign="end center">
+        <button class="round-btn">
+            <mat-icon svgIcon="soc-icon" aria-hidden="false"></mat-icon>
+        </button>
+        <button class="round-btn">
+            <mat-icon svgIcon="download-icon" aria-hidden="false"></mat-icon>
+        </button>
+    </div>
+</div>

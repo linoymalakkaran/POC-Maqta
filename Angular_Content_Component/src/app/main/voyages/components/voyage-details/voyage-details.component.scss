@@ -1,0 +1,40 @@
+
+@import "src/@atlp/scss/variables";
+.voyage-details{
+.info-icon{
+    margin-left: 12px;
+}
+.voyages-panel-row{
+    margin-top:25px
+}
+.voyages-button-row{
+    margin-top: 32px;
+    margin-bottom: 24px;
+    max-height: 92px !important;
+}
+.new-voyage-section{
+    border-top: 2px solid map-get($color , 'atlp-panel-border' );
+    padding-top:34px ;
+}
+.field-wrap,.dropdown-col{
+    margin-bottom: 24px;
+}
+.remarks-row{
+    margin-top: 43px;
+}
+
+// .checkbox-row{
+//     flex-wrap: wrap;
+// }
+@media screen and (max-width:960px){
+.voyages-button-row{
+    margin-top: 12px;
+}
+.check-box-row{
+    margin-bottom: 24px;
+}
+}
+}
+.drawer-wrap{
+    width: 100% !important;
+}

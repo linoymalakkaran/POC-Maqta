@@ -1,0 +1,14 @@
+@import "src/@atlp/scss/variables";
+
+.panel-container {
+    background-color: map-get($color, "atlp-grey-light") !important;
+}
+
+.controls-buttons {
+    position: absolute;
+    top: 16px;
+    right: 0;
+    button {
+        margin-left: 15px;
+    }
+}

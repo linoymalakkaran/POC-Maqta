@@ -1,0 +1,20 @@
+<mat-drawer-container class="panel-container px-32">
+    <mat-drawer #sideNav mode="over" opened="true" [position]="nav_position">
+        <button class="round-btn panel-btn" (click)="sideNav.toggle()" id="mybtn-add">
+            <mat-icon class="small-close-btn" svgIcon="close-white-icon" aria-hidden="false"></mat-icon>
+        </button>
+        <ng-container>
+            <flight-schedule [flight]="flight" [toll]="toll" [fax]="fax" [Email]="Email" [info]="info"
+                [stepperData]="stepperData">
+            </flight-schedule>
+        </ng-container>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="controls-buttons">
+            <button mat-raised-button color="primary" class="icon" (click)="sideNav.toggle()" id="appoint-btn">
+                <mat-icon svgIcon="plus-white" aria-hidden="false"></mat-icon>
+                Schedule
+            </button>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>

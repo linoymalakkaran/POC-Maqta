@@ -1,0 +1,61 @@
+::ng-deep {
+    voyage-table-list {
+        width: 100%;
+    }
+}
+
+.voyage-table-list {
+    width: 100%;
+    min-width: 2100px;
+    .mat-cell,
+    .mat-header-cell {
+        padding-right: 10px;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+    }
+    .btn-icon-status {
+        margin-right: 10px;
+        position: relative;
+        top: -1px;
+    }
+    // status colors
+    .accept {
+        color: #57a05a !important;
+    }
+    .rejected {
+        color: #d92836 !important;
+    }
+    .pending {
+        color: #c5d2e7 !important;
+    }
+    .add-new {
+        color: #267ad2 !important;
+    }
+}
+
+.cell-status-icon {
+    min-width: 30px;
+    min-height: 30px;
+    margin: 0 0 -1px -8px;
+}
+
+.table-scroll-wrap {
+    margin-right: -30px;
+    // overflow-x: auto !important;
+}
+.collapseoverflow {
+    overflow-x: auto !important;
+}
+.small-cell {
+    width: 54px;
+    flex: none;
+}
+.agent-cell {
+    width: 230px;
+    flex: none;
+}
+.agent-number {
+    width: 152px;
+    flex: none;
+}

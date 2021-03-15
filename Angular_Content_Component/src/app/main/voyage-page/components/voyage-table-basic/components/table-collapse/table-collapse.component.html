@@ -1,0 +1,216 @@
+<div class="table-container" fxLayout="column">
+    <!-- Start table controls -->
+    <ng-container *ngIf="selection.selected.length < 2">
+        <div class="table-controls mb-24" fxFlex="none" fxLayout="row" fxLayoutAlign="space-between center">
+            <span class="table-controls-title ml-auto">{{dataSource.data.length}} Voyages</span>
+        </div>
+    </ng-container>
+    <!-- End table controls -->
+    <!-- Start table controls selected -->
+    <ng-container *ngIf="selection.selected.length > 1">
+        <div class="table-controls selected mb-24" fxFlex="none" fxLayout="column" fxLayout.gt-sm="row"
+            fxLayoutAlign="start start" fxLayoutAlign.gt-sm="space-between center">
+            <span class="table-controls-title">{{selection.selected.length}} Voyages Selected</span>
+            <div class="table-nav" fxFlex fxLayout="row wrap" fxLayoutAlign="start start"
+                fxLayoutAlign.gt-sm="end center">
+                <button mat-raised-button color="primary" class="icon">
+                    <mat-icon svgIcon="plus-white" aria-hidden="false"></mat-icon>
+                    Action
+                </button>
+                <button mat-raised-button color="basic" class="icon">
+                    <mat-icon svgIcon="smock-icon" aria-hidden="false"></mat-icon>
+                    Pin to Top
+                </button>
+                <button mat-raised-button color="basic" class="icon">
+                    <mat-icon svgIcon="print-black" aria-hidden="false"></mat-icon>
+                    Print Token
+                </button>
+                <button mat-raised-button color="basic" class="icon">
+                    <mat-icon svgIcon="print-black" aria-hidden="false"></mat-icon>
+                    EIR
+                </button>
+                <button mat-raised-button color="basic" class="icon">
+                    <mat-icon svgIcon="copy-black" aria-hidden="false"></mat-icon>
+                    Duplicate
+                </button>
+                <button mat-raised-button color="warn">Delete</button>
+            </div>
+        </div>
+    </ng-container>
+    <!-- End table controls selected -->
+    <!-- Start table content -->
+    <div class="table-scroll-wrap collapseoverflow" fxFlex="none" atlpPerfectScrollbar>
+        <mat-table [dataSource]="dataSource" class="table voyage-table-list">
+            <!-- Start Checkbox Column -->
+            <ng-container matColumnDef="select">
+                <mat-header-cell *matHeaderCellDef class="small-cell">
+                    <mat-checkbox (change)="$event ? masterToggle() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+                    </mat-checkbox>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="small-cell">
+                    <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selection.toggle(element) : null" [checked]="selection.isSelected(element)"
+                        [aria-label]="checkboxLabel(element)">
+                    </mat-checkbox>
+                    <!-- Start <div class="loader"></div> -->
+                </mat-cell>
+            </ng-container>
+            <!-- End Checkbox Column -->
+            <!-- Start Voyage Number Column -->
+            <ng-container matColumnDef="number">
+                <mat-header-cell *matHeaderCellDef class="agent-number"> Voyage Number </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="agent-number">
+                    <a href="#"> {{element.number}} </a>
+                </mat-cell>
+            </ng-container>
+            <!-- End Voyage Number Column -->
+            <!-- Start Vessel Name Column -->
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef class="agent-number"> Vessel Name </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="agent-number">
+                    <a href="#"> {{element.name}} </a>
+                </mat-cell>
+            </ng-container>
+            <!-- End Vessel Name Column -->
+            <!-- Start Port Column -->
+            <ng-container matColumnDef="port">
+                <mat-header-cell *matHeaderCellDef> Port </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.port}} </mat-cell>
+            </ng-container>
+            <!-- End Port Column -->
+            <!-- Start Terminal Column -->
+            <ng-container matColumnDef="terminal">
+                <mat-header-cell *matHeaderCellDef> Terminal </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.terminal}} </mat-cell>
+            </ng-container>
+            <!-- End Terminal Column -->
+            <!-- Start Rotation Column -->
+            <ng-container matColumnDef="rotation">
+                <mat-header-cell *matHeaderCellDef> Rotation </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.rotation}} </mat-cell>
+            </ng-container>
+            <!-- End Rotation Column -->
+            <!-- Start ETA/ATA Column -->
+            <ng-container matColumnDef="eta">
+                <mat-header-cell *matHeaderCellDef> ETA/ATA </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.eta}} </mat-cell>
+            </ng-container>
+            <!-- End ETA/ATA Column -->
+            <!-- Start VT/ETD Column -->
+            <ng-container matColumnDef="etd">
+                <mat-header-cell *matHeaderCellDef> VT/ETD </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    <mat-icon class="cell-status-icon" svgIcon="message-icon" aria-hidden="false"></mat-icon>
+                    {{element.etd}}
+                </mat-cell>
+            </ng-container>
+            <!-- End VT/ETD Column -->
+            <!-- Start Vessel Agent Column -->
+            <ng-container matColumnDef="agent">
+                <mat-header-cell *matHeaderCellDef class="agent-cell"> Vessel Agent </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="agent-cell"> {{element.agent}} </mat-cell>
+            </ng-container>
+            <!-- End Vessel Agent Column -->
+
+            <!-- Start vc Column -->
+            <ng-container matColumnDef="vc">
+                <mat-header-cell *matHeaderCellDef> Voyage Customs </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="accept">
+                    <button class="btn-icon-status">
+                        <mat-icon svgIcon="table-success-icon" aria-hidden="false"></mat-icon>
+                    </button>
+                    {{element.vc}}
+                </mat-cell>
+            </ng-container>
+            <!-- End vc Column -->
+            <!-- Start vt Column -->
+            <ng-container matColumnDef="vt">
+                <mat-header-cell *matHeaderCellDef> Voyage Terminal </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="rejected">
+                    <button class="btn-icon-status">
+                        <mat-icon svgIcon="table-warn-icon" aria-hidden="false"></mat-icon>
+                    </button>
+                    {{element.vt}}
+                </mat-cell>
+            </ng-container>
+            <!-- End vt Column -->
+            <!-- Start cr Column -->
+            <ng-container matColumnDef="cr">
+                <mat-header-cell *matHeaderCellDef> Call Request </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="pending">
+                    <button class="btn-icon-status pending">
+                        <mat-icon svgIcon="pending-icon-table" aria-hidden="false"></mat-icon>
+                    </button>
+                    {{element.cr}}
+                </mat-cell>
+            </ng-container>
+            <!-- End cr Column -->
+            <!-- Start mf Column -->
+            <ng-container matColumnDef="mf">
+                <mat-header-cell *matHeaderCellDef> Manifest </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="accept">
+                    <button class="btn-icon-status">
+                        <mat-icon svgIcon="table-success-icon" aria-hidden="false"></mat-icon>
+                    </button>
+                    {{element.mf}}
+                </mat-cell>
+            </ng-container>
+            <!-- End mf Column -->
+            <!-- Start dl Column -->
+            <ng-container matColumnDef="dl">
+                <mat-header-cell *matHeaderCellDef> Discharge List </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="add-new">
+                    <button class="btn-icon-status">
+                        <mat-icon svgIcon="table-plus-icon" aria-hidden="false"></mat-icon>
+                    </button>
+                    {{element.dl}}
+                </mat-cell>
+            </ng-container>
+            <!-- End dl Column -->
+            <!-- Start ll Column -->
+            <ng-container matColumnDef="ll">
+                <mat-header-cell *matHeaderCellDef> Loading list </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="add-new">
+                    <button class="btn-icon-status">
+                        <mat-icon svgIcon="table-plus-icon" aria-hidden="false"></mat-icon>
+                    </button>
+                    {{element.ll}}
+                    <div class="table-nav" fxFlex fxLayout="row" fxLayoutAlign="end center">
+                        <button mat-raised-button color="basic" class="icon">
+                            <mat-icon svgIcon="smock-icon" aria-hidden="false"></mat-icon>
+                            Pin to Top
+                        </button>
+                        <button mat-raised-button color="basic" class="icon">
+                            <mat-icon svgIcon="print-black" aria-hidden="false"></mat-icon>
+                            Print Token
+                        </button>
+                        <button mat-raised-button color="basic" class="icon">
+                            <mat-icon svgIcon="print-black" aria-hidden="false"></mat-icon>
+                            EIR
+                        </button>
+                        <button mat-raised-button color="basic" class="icon">
+                            <mat-icon svgIcon="copy-black" aria-hidden="false"></mat-icon>
+                            Duplicate
+                        </button>
+                        <button mat-raised-button color="warn">Delete</button>
+                    </div>
+                </mat-cell>
+            </ng-container>
+            <!-- End ll Column -->
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row)"
+                [class.selected]="selection.isSelected(row)"
+                [class.show-controls]="selection.isSelected(row) && selection.selected.length === 1"></mat-row>
+        </mat-table>
+    </div>
+    <!-- End table content -->
+    <!-- Start mat-paginator -->
+    <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="10"></mat-paginator> -->
+    <!-- End mat-paginator -->
+</div>
+<div class="btn-wrap mt-32" fxLayout="row" fxLayoutAlign="center center">
+    <button mat-raised-button color="basic">Load More</button>
+</div>

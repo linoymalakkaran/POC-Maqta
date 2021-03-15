@@ -1,0 +1,63 @@
+<div class="drawer-wrap flight-schedule" fxFlex fxLayout="column" fxLayoutAlign=" none">
+    <div class="drawer-header" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="drawer-info">
+
+            <span class="drawer-title">Truck Tracking: {{TruckNumber}}</span>
+            <p class="drawer-subtitle">
+                <span>Toll free {{toll}},</span>
+                <span class="fax-border">Fax {{fax}}</span>
+                <span class="Email"> Email: {{Email}}</span>
+            </p>
+        </div>
+    </div>
+    <div class="drawer-body" fxLayout="row wrap">
+
+        <div class="track-info-row" fxFlex fxLayout="row wrap" fxLayoutAlign="start start">
+
+
+            <div class="key-value-column" fxFlex="25">
+                <div class="header-info">Truck Number</div>
+                <div class="header-value">{{TruckNumber}}</div>
+            </div>
+            <div class="key-value-column" fxFlex="25">
+                <div class="header-info">Truck Company</div>
+                <div class="header-value">{{Info.truckCompany}}</div>
+            </div>
+
+
+            <div class="stepper-row-truck" fxFlex="100" fxLayout="row wrap" fxLayoutAlign="start start">
+                <h2 class="block-title stepper-title" fxFlex="100">FLIGHT STATUS</h2>
+                <atlp-stepper [stepperData]="stepperData"></atlp-stepper>
+            </div>
+            <div class="key-value-column" fxFlex="25">
+                <div class="header-info">APP Number</div>
+                <div class="header-value">{{Info.appNumber}}</div>
+            </div>
+            <div class="key-value-column" fxFlex="25">
+                <div class="header-info">APPointment date</div>
+                <div class="header-value">{{Info.appointmentaDate}}</div>
+            </div>
+            <div class="key-value-column" fxFlex="25">
+                <div class="header-info">Containers</div>
+                <div class="header-value">{{Info.appointmentaDate}}</div>
+            </div>
+            <div class="key-value-column" fxFlex="25">
+                <div class="header-info">Transaction</div>
+                <div class="header-value">{{Info.Transaction}}</div>
+            </div>
+            <div class="key-value-column timelapse" fxFlex="25">
+                <div class="header-info">Time lapsed</div>
+                <div class="header-value">{{Info.Timelapsed}}</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="soc-wrap" fxLayout="column" fxLayoutAlign="end center">
+    <button class="round-btn">
+        <mat-icon svgIcon="tel-icon" aria-hidden="false"></mat-icon>
+    </button>
+    <button class="round-btn">
+        <mat-icon svgIcon="email-icon" aria-hidden="false"></mat-icon>
+    </button>
+</div>

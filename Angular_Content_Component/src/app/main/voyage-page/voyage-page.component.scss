@@ -1,0 +1,12 @@
+@import "src/@atlp/scss/variables";
+
+::ng-deep {
+    voyage-page {
+        background-color: map-get($color, 'atlp-grey-light');
+    }
+  
+}
+.voyage-container {
+    width: 100%;
+}
+ 

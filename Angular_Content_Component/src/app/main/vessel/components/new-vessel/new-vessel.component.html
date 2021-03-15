@@ -1,0 +1,232 @@
+<div class="drawer-wrap" fxFlex fxLayout="column" fxLayoutAlign=" none">
+    <div class="drawer-header" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="drawer-info">
+            <span class="drawer-title">New Vessel Call</span>
+            <span class="drawer-percent">32% complete</span>
+        </div>
+        <atlp-progress-bar></atlp-progress-bar>
+    </div>
+
+    <atlp-messages *ngIf="showMessage" [button1Function]="continueEditing" [button2Function]="QuitEditing"
+        [title]="messageTitle" [subtitle]="messagesubtitle" [button1Text]="messagesbutton1Text" button2Text="Quit">
+    </atlp-messages>
+
+    <div class="drawer-body vessel-body">
+        <div class="panel-header">
+            <h2 class="block-title">Upload pan</h2>
+            <div class="mt-8" fxLayout="row" fxLayoutAlign="space-between center">
+                <span class="base-text">Time slot & Charges</span>
+                <span class="base-text">Download File Template</span>
+            </div>
+        </div>
+
+        <app-file [typeFiles]="typeFiles" (loadedFiles)="loadedFiles($event)"></app-file>
+
+        <div class="mb-32" fxLayout="row" fxLayoutAlign="start center">
+            <h3 class="block-sub-title vessel-subtitle mb-0 mr-32">OR Enter Manually</h3>
+            <button mat-raised-button color="primary" (click)="openSnackBar()" aria-label="Show an example snack-bar">Start Now</button>
+        </div>
+
+        <!-- General call details -->
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <span class="panel-title">General call details</span>
+                        <span class="panel-info">1 of 3 complete</span>
+                    </mat-panel-description>
+                    <atlp-progress-bar class="panel-small"></atlp-progress-bar>
+                </mat-expansion-panel-header>
+
+
+                <div class="panel-body">
+                    <general-details></general-details>
+                </div>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <!-- SECURITY INFORMATION -->
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <span class="panel-title">SECURITY INFORMATION</span>
+                        <span class="panel-info">1 of 3 complete</span>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+
+                <div class="panel-body">
+
+                </div>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <!-- LAST 10 PORTS -->
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <span class="panel-title">LAST 10 PORTS</span>
+                        <span class="panel-info">1 of 3 complete</span>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+
+                <div class="panel-body">
+
+                </div>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <!-- WASTE DISPOSAL -->
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <span class="panel-title">WASTE DISPOSAL</span>
+                        <span class="panel-info">1 of 3 complete</span>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+
+                <div class="panel-body">
+
+                </div>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <!-- INSURANCE/CONTACT DETAILS -->
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <span class="panel-title">INSURANCE/CONTACT DETAILS</span>
+                        <span class="panel-info">1 of 3 complete</span>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+
+                <div class="panel-body">
+
+                </div>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <!-- ATTACHMENTS -->
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <span class="panel-title">ATTACHMENTS</span>
+                        <span class="panel-info">1 of 3 complete</span>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+
+                <div class="panel-body">
+
+                </div>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <!-- Service request -->
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <span class="panel-title">Service request</span>
+                        <span class="panel-info">1 of 3 complete</span>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+
+                <div class="panel-body">
+
+                </div>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <!-- PTW -->
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <span class="panel-title">PTW</span>
+                        <span class="panel-info">1 of 3 complete</span>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+
+                <div class="panel-body">
+
+                </div>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <!-- Marine Spread -->
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <span class="panel-title">Marine Spread</span>
+                        <span class="panel-info">1 of 3 complete</span>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+
+                <div class="panel-body">
+
+                </div>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <!-- Agent Change -->
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <span class="panel-title">Agent Change</span>
+                        <span class="panel-info">1 of 3 complete</span>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+
+                <div class="panel-body">
+
+                </div>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>
+
+<!-- panel-nav -->
+<div class="panel-nav" fxLayout="column" fxLayoutAlign="space-between center">
+    <!-- close btn -->
+    <div *ngIf="showMessage; else elseBlock">
+    </div>
+    <ng-template #elseBlock>
+        <button class="round-btn panel-btn" (click)="toggleSidebarOpen(SidebarName.vessel)">
+            <mat-icon class="small-close-btn" svgIcon="close-white-icon" aria-hidden="false"></mat-icon>
+        </button>
+        <!-- soc-wrap -->
+        <div class="soc-wrap" fxLayout="column" fxLayoutAlign="end center">
+            <button class="round-btn">
+                <mat-icon svgIcon="soc-icon" aria-hidden="false"></mat-icon>
+            </button>
+            <button class="round-btn">
+                <mat-icon svgIcon="download-icon" aria-hidden="false"></mat-icon>
+            </button>
+        </div>
+    </ng-template>
+</div>

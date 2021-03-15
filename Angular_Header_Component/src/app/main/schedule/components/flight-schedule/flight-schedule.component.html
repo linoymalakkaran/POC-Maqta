@@ -1,0 +1,50 @@
+<div class="drawer-wrap flight-schedule" fxFlex fxLayout="column" fxLayoutAlign=" none">
+    <div class="drawer-header" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="drawer-info">
+
+            <span class="drawer-title">{{flight}}</span>
+            <p class="drawer-subtitle">
+                <span>Toll free {{toll}},</span>
+                <span class="fax-border">Fax {{fax}}</span>
+                <span class="Email"> Email: {{Email}}</span>
+            </p>
+        </div>
+    </div>
+    <div class="drawer-body" fxLayout="row wrap">
+
+        <div class="track-info-row" fxFlex fxLayout="row wrap" fxLayoutAlign="space-between start">
+
+
+            <div class="key-value-column" fxFlex="25">
+                <div class="header-info">Airway BL#</div>
+                <div class="header-value">{{info.airwaybl}}</div>
+            </div>
+            <div class="key-value-column" fxFlex="25">
+                <div class="header-info">Origin</div>
+                <div class="header-value">{{info.origin}}</div>
+            </div>
+            <div class="key-value-column" fxFlex="25">
+                <div class="header-info">destination</div>
+                <div class="header-value">{{info.destination}}</div>
+            </div>
+            <div class="key-value-column" fxFlex="25">
+                <div class="header-info">STATUS</div>
+                <div class="header-value">{{info.status}}</div>
+            </div>
+
+            <div class="stepper-row" fxFlex fxLayout="row wrap" fxLayoutAlign="space-between start">
+                <h2 class="block-title stepper-title" fxFlex="100">Track Cargo</h2>
+                <atlp-stepper [stepperData]="stepperData"></atlp-stepper>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="soc-wrap" fxLayout="column" fxLayoutAlign="end center">
+    <button class="round-btn">
+        <mat-icon svgIcon="tel-icon" aria-hidden="false"></mat-icon>
+    </button>
+    <button class="round-btn">
+        <mat-icon svgIcon="email-icon" aria-hidden="false"></mat-icon>
+    </button>
+</div>
