@@ -1,0 +1,17 @@
+<mat-drawer-container class="panel-container px-32">
+    <mat-drawer #sideNav mode="over" opened="true" [position]="nav_position">
+        <button class="round-btn panel-btn" (click)="sideNav.toggle()" id="mybtn-add">
+            <mat-icon class="small-close-btn" svgIcon="close-white-icon" aria-hidden="false"></mat-icon>
+        </button>
+        <ng-container>
+            <track-and-trace [airwaybl]="airwaybl" [toll]="toll" [fax]="fax" [Email]="Email" [info]='info'
+                [stepperData]="stepperData">
+            </track-and-trace>
+        </ng-container>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="container" fxFlex fxLayout="column" fxLayoutAlign="start none">
+            <track-cargo-table></track-cargo-table>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>

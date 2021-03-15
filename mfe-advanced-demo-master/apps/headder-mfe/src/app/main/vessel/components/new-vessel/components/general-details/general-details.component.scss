@@ -1,0 +1,17 @@
+.vessel-row {
+    margin-bottom: 30px;
+    &:last-child {
+        @media (min-width: 960px) {
+            margin-bottom: 64px;
+        }
+    }
+    .mat-checkbox {
+        margin-bottom: 12px;
+    }
+    .field-wrap {
+        margin-bottom: 24px;
+        @media (min-width: 1280px) {
+            margin-bottom: 0;
+        }
+    }
+}

@@ -1,0 +1,95 @@
+<div class="drawer-wrap heavy-duty" fxFlex fxLayout="column" fxLayoutAlign=" none">
+    <div class="drawer-header" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="drawer-info">
+
+            <span class="drawer-title">New Container</span>
+
+        </div>
+    </div>
+    <div class="drawer-body" fxLayout="column">
+        <h2 class="block-title">Upload Template</h2>
+        <p class="block-subtitle">Files should be pdf,xyz,abc</p>
+        <ngx-awesome-uploader class="awesome-uploader" #uploader [adapter]="adapter" [fileMaxCount]="10"
+            [fileMaxSize]="5" [uploadType]="'multi'" (validationError)="onValidationError($event)"
+            [fileExtensions]="['pdf', 'jpg', 'jpeg', 'png', 'mp4', 'css']" [enableCropper]="false"
+            (uploadSuccess)="onUploadSuccess($event)" (removeSuccess)="onRemoveSuccess($event)"
+            (fileAdded)="onFileAdded($event)" [itemTemplate]="myItemTemplate">
+            <div class="dropzoneTemplate">
+                <div class="upload-wrap" fxLayout="column" fxLayoutAlign="center center">
+                    <mat-icon svgIcon="folder" aria-hidden="false"></mat-icon>
+                    <span class="upload-title">Drop your file here</span>
+                    <span class="upload-title">OR</span>
+                    <label for="file">Browse Files</label>
+                    <span class="upload-text">Maximum size 5MB</span>
+                </div>
+            </div>
+        </ngx-awesome-uploader>
+        <ng-template #myItemTemplate let-fileItem="fileItem" let-uploadProgress="uploadProgress">
+            <div class="file">
+                <div class="file__wrap" fxFlex fxLayout="row" fxLayoutAlign="start center">
+                    <div class="file__icon">
+                        <mat-icon *ngIf="fileItem.file.type===TypeFile.PNG" svgIcon="folder" aria-hidden="false">
+                        </mat-icon>
+                        <mat-icon *ngIf="fileItem.file.type===TypeFile.PDF" svgIcon="pdf-icon" aria-hidden="false">
+                        </mat-icon>
+                    </div>
+                    <div class="file__info" fxFlex fxLayout="column">
+                        <span class="file__title">{{ fileItem.fileName }}</span>
+                        <span class="file__text">Date Attached: {{ fileItem.file.lastModifiedDate |
+                                            date:'medium' }}</span>
+                        <span class="file__text">Attached by: User Name</span>
+                    </div>
+                    <button type="button" class="file__btn" (click)="uploader.removeFile(fileItem)">
+                        <mat-icon svgIcon="file-remove" aria-hidden="false"></mat-icon>
+                    </button>
+                </div>
+            </div>
+        </ng-template>
+
+        <span class="Title-2">
+            OR Enter Manually
+        </span>
+        <div class="panel-row">
+            <form>
+                <div class="form-row-heavy-duty" fxLayout="row wrap" fxLayoutAlign="start center"
+                    fxLayoutGap.gt-sm="20px" fxLayoutGap.gt-xs="20px" fxLayoutGap="0px">
+                    <div class="field-wrap bg" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="25%" fxLayout="column">
+                        <label for="PEC" class="field-label">PEC</label>
+                        <div class="field-input-wrap">
+                            <input id="PEC" type="text" placeholder="" required />
+                        </div>
+                    </div>
+                    <div class="field-wrap bg" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="25%" fxLayout="column">
+                        <label for="PEC" class="field-label">MFC</label>
+                        <div class="field-input-wrap">
+                            <input id="PEC" type="text" placeholder="" required />
+                        </div>
+                    </div>
+                    <div class="dropdown-col bg" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="25%" fxLayout="column">
+                        <label for="#" class="dropdown-label">Shipping Line</label>
+                        <mat-select class="dropdown-select bg" panelClass="panel-custom bg">
+                            <mat-option [value]="'United States of America'">
+                                United
+                            </mat-option>
+                            <mat-option [value]="'United Kingdom'">
+                                United Kingdom
+                            </mat-option>
+                            <mat-option [value]="'Russia'">
+                                Russia
+                            </mat-option>
+                            <mat-option [value]="'China'">
+                                China
+                            </mat-option>
+                            <mat-option [value]="'Japan'">
+                                Japan
+                            </mat-option>
+                            <mat-option [value]="'Turkey'">
+                                Turkey
+                            </mat-option>
+                        </mat-select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

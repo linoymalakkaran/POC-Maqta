@@ -1,0 +1,112 @@
+<div class="wrapper" fxFlex="none" fxLayout="column" fxLayoutAlign="start none">
+    <header class="header" fxFlex="none">
+        <mat-toolbar class="p-0">
+            <div class="toolbar-container" fxFlex fxFill fxLayout="row" fxLayoutAlign="start center">
+                <app-menu></app-menu>
+                <span class="toolbar-btn-text desktop">Voyages</span>
+
+                <div class="toolbar-body" fxLayout="row" fxLayoutAlign="start center">
+                    <button class="icon-btn open-table-btn mr-12" (click)="onSwitchView()"
+                        [class.active]="typeViewBasic">
+                        <mat-icon class="close-table-icon" svgIcon="open-table-icon" aria-hidden="false"></mat-icon>
+                        <mat-icon class="open-table-icon" svgIcon="open-table-icon-active" aria-hidden="false">
+                        </mat-icon>
+                    </button>
+                    <atlp-search-bar (input)="search($event)"></atlp-search-bar>
+                    <button mat-raised-button color="basic" class="icon filter-btn ml-12 mr-12"
+                        (click)="toggleSidebarOpen(SidebarName.filtersSidebar)">
+                        <mat-icon svgIcon="filter-icon" aria-hidden="false"></mat-icon>
+                        Filter
+                    </button>
+                    <button class="mr-12" mat-raised-button color="basic">Customize</button>
+                    <ng-container *ngIf="typeViewBasic">
+                        <mat-button-toggle-group class="basic-toggle" #group="matButtonToggleGroup">
+                            <mat-button-toggle value="collapse" checked="true" (change)="onValChange($event.value)">
+                                <mat-icon svgIcon="table-icon-one" aria-hidden="false"></mat-icon>
+                            </mat-button-toggle>
+                            <mat-button-toggle value="rolled" (change)="onValChange($event.value)">
+                                <mat-icon svgIcon="table-icon-two" aria-hidden="false"></mat-icon>
+                            </mat-button-toggle>
+                        </mat-button-toggle-group>
+                    </ng-container>
+                </div>
+
+                <atlp-search-bar class="mob-search" (input)="search($event)"></atlp-search-bar>
+
+                <button mat-raised-button color="basic" class="icon nav-mob-btn" [matMenuTriggerFor]="navMob">
+                    <mat-icon>settings</mat-icon>
+                </button>
+
+                <mat-menu class="nav-mob-menu" #navMob="matMenu" [overlapTrigger]="false">
+                    <button mat-menu-item fxLayout="row" fxLayoutAlign="start center">
+                        <button class="icon-btn open-table-btn mr-12" (click)="onSwitchView()"
+                            [class.active]="typeViewBasic">
+                            <mat-icon class="close-table-icon" svgIcon="open-table-icon" aria-hidden="false"></mat-icon>
+                            <mat-icon class="open-table-icon" svgIcon="open-table-icon-active" aria-hidden="false">
+                            </mat-icon>
+                        </button>
+                        <ng-container *ngIf="typeViewBasic">
+                            <mat-button-toggle-group class="basic-toggle" #group="matButtonToggleGroup">
+                                <mat-button-toggle value="collapse" checked="true" (change)="onValChange($event.value)">
+                                    <mat-icon svgIcon="table-icon-one" aria-hidden="false"></mat-icon>
+                                </mat-button-toggle>
+                                <mat-button-toggle value="rolled" (change)="onValChange($event.value)">
+                                    <mat-icon svgIcon="table-icon-two" aria-hidden="false"></mat-icon>
+                                </mat-button-toggle>
+                            </mat-button-toggle-group>
+                        </ng-container>
+                    </button>
+                    <button mat-menu-item>
+                        <button mat-raised-button color="basic" class="icon filter-btn"
+                            (click)="toggleSidebarOpen(SidebarName.filtersSidebar)">
+                            <mat-icon svgIcon="filter-icon" aria-hidden="false"></mat-icon>
+                            Filter
+                        </button>
+                    </button>
+                    <button mat-menu-item>
+                        <button class="mr-12" mat-raised-button color="basic">Customize</button>
+                    </button>
+                    <button mat-menu-item>
+                        <button mat-raised-button color="primary" class="icon start-new-btn">
+                            <mat-icon svgIcon="plus-white" aria-hidden="false"></mat-icon>
+                            Start New
+                        </button>
+                    </button>
+                </mat-menu>
+
+                <div class="toolbar-nav" fxFlex fxFill fxLayout="row" fxLayoutAlign="end center">
+                    <button mat-raised-button color="primary" class="icon start-new-btn">
+                        <mat-icon svgIcon="plus-white" aria-hidden="false"></mat-icon>
+                        Start New
+                    </button>
+                    <header-user></header-user>
+                </div>
+            </div>
+        </mat-toolbar>
+    </header>
+
+    <span class="toolbar-btn-text tablet">Voyages</span>
+
+    <div class="sidebar-container" fxLayout="row" fxLayoutAlign="start start">
+        <atlp-sidebar class="filters-sidebar" [name]="SidebarName.filtersSidebar" position="left" [folded]="false"
+            [invisibleOverlay]="true">
+            <filters [toggleFilters]="toggleFilters" *ngIf="showFilters" title="FILTER VOYAGES"
+                sectiontitle1="SEARCH BY" [SearchbyOptions1]="SearchbyOptions1" [appliedfilters]="appliedfilters"
+                [changeFilters]="changeFilters" [clearfilters]="clearfilters">
+            </filters>
+        </atlp-sidebar>
+
+        <div class="voyage-container">
+            <!-- Start voyage table rich -->
+            <ng-container *ngIf="!typeViewBasic">
+                <voyage-table-rich></voyage-table-rich>
+            </ng-container>
+            <!-- End voyage table rich-->
+            <!-- Start voyage table basic -->
+            <ng-container *ngIf="typeViewBasic">
+                <voyage-table-basic [tableType]="tableType"></voyage-table-basic>
+            </ng-container>
+            <!-- End voyage table basic -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1 @@
+export * from './voyage-details/voyage-details.component'
