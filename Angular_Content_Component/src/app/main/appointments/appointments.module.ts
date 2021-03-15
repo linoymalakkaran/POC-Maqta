@@ -10,12 +10,7 @@ import { AtlpSearchBarModule } from '@atlp/components';
 
 import { 
   AppointmentTableComponent,
-  NewAppointmentComponent,
-  AppointementChargesComponent,
-  AppointementReportComponent,
-  AppointmentFileComponent,
-  AddAwbComponent,
-  AddDriverComponent
+
 } from './components';
 
 
@@ -28,14 +23,8 @@ const routes = [
 
 @NgModule({
   declarations: [
-    AppointmentsComponent,
-    AppointmentTableComponent,
-    NewAppointmentComponent,
-    AppointementChargesComponent,
-    AppointementReportComponent,
-    AppointmentFileComponent,
-    AddAwbComponent,
-    AddDriverComponent
+   AppointmentsComponent,
+    AppointmentTableComponent,  
   ],
   imports: [
     RouterModule.forChild(routes),
