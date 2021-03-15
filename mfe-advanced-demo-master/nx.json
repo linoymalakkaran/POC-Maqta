@@ -34,7 +34,13 @@
         "counter-mfe": {
             "tags": []
         },
-        "shell": {
+        "header-mfe": {
+            "tags": []
+        },
+        "menu-mfe": {
+            "tags": []
+        },
+        "ic-app": {
             "tags": []
         }
     }

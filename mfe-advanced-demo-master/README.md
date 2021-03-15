@@ -6,9 +6,9 @@ Please check the Medium article [How to build a micro-frontends architecture, wi
 
 The demo is based on two apps:
 - a **counter-mfe** micro-app with a Counter module, which provides a working counter feature with it's own `counter` ngrx store (state and actions),
-- a main **shell** app which provides the default home page, an authentication feature with it's own `auth` ngrx store (state and action) from an auth lib. 
+- a main **ic-app** app which provides the default home page, an authentication feature with it's own `auth` ngrx store (state and action) from an auth lib. 
 
-Once authenticated on the shell app, it's possible to navigate to the counter feature and loads the remote Counter module from **counter-mfe** app.
+Once authenticated on the ic-app app, it's possible to navigate to the counter feature and loads the remote Counter module from **counter-mfe** app.
 
 ![Apps diagram](mfe-demo-diagram.png)
 
@@ -17,7 +17,7 @@ Note: for a more basic demo, you might check [MFE basic demo](https://github.com
 Note 2: the initial workspace was created with Nx CLI.
 
 ```
-npx create-nx-workspace@latest mfe-advanced-demo --preset="angular" --appName="shell" --style="scss"
+npx create-nx-workspace@latest mfe-advanced-demo --preset="angular" --appName="ic-app" --style="scss"
 ng g @nrwl/angular:app mfe1
 ```
 
@@ -31,14 +31,14 @@ nx serve counter-mfe
 
 ![Counter MFE](mfe-counter.png)
 
-Run the **shell** main app and go to http://localhost:4200.
+Run the **ic-app** main app and go to http://localhost:4200.
 
 ```
-nx serve shell
+nx serve ic-app
 ```
 
-![Apps diagram](mfe-shell-home.png)
+![Apps diagram](mfe-ic-app-home.png)
 
 Login and navigate to Counter MFE, which will load the Counter module from the **counter-mfe** micro-app.
 
-![Apps diagram](mfe-shell-counter.png)
+![Apps diagram](mfe-ic-app-counter.png)

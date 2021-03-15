@@ -21,9 +21,9 @@ module.exports = {
                 'counter-remote':
                     'counter@http://localhost:4300/counterRemoteEntry.js',
                 'header-remote':
-                    'counter@http://localhost:4302/headerRemoteEntry.js',
+                    'header@http://localhost:4302/headerRemoteEntry.js',
                 'menu-remote':
-                    'counter@http://localhost:4301/menuRemoteEntry.js',
+                    'menu@http://localhost:4301/menuRemoteEntry.js',
             },
             shared: {
                 '@angular/core': { singleton: true, strictVersion: false },

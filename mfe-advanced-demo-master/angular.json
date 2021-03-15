@@ -1,42 +1,42 @@
 {
     "version": 1,
     "projects": {
-        "shell": {
+        "ic-app": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
                     "style": "scss"
                 }
             },
-            "root": "apps/shell",
-            "sourceRoot": "apps/shell/src",
+            "root": "apps/ic-app",
+            "sourceRoot": "apps/ic-app/src",
             "prefix": "mfe-nx-demo",
             "architect": {
                 "build": {
                     "builder": "ngx-build-plus:browser",
                     "options": {
-                        "outputPath": "dist/apps/shell",
-                        "index": "apps/shell/src/index.html",
-                        "main": "apps/shell/src/main.ts",
-                        "polyfills": "apps/shell/src/polyfills.ts",
-                        "tsConfig": "apps/shell/tsconfig.app.json",
+                        "outputPath": "dist/apps/ic-app",
+                        "index": "apps/ic-app/src/index.html",
+                        "main": "apps/ic-app/src/main.ts",
+                        "polyfills": "apps/ic-app/src/polyfills.ts",
+                        "tsConfig": "apps/ic-app/tsconfig.app.json",
                         "aot": true,
                         "assets": [
-                            "apps/shell/src/favicon.ico",
-                            "apps/shell/src/assets"
+                            "apps/ic-app/src/favicon.ico",
+                            "apps/ic-app/src/assets"
                         ],
                         "styles": [
-                            "apps/shell/src/styles.scss"
+                            "apps/ic-app/src/styles.scss"
                         ],
                         "scripts": [],
-                        "extraWebpackConfig": "apps/shell/webpack.config.js"
+                        "extraWebpackConfig": "apps/ic-app/webpack.config.js"
                     },
                     "configurations": {
                         "production": {
                             "fileReplacements": [
                                 {
-                                    "replace": "apps/shell/src/environments/environment.ts",
-                                    "with": "apps/shell/src/environments/environment.prod.ts"
+                                    "replace": "apps/ic-app/src/environments/environment.ts",
+                                    "with": "apps/ic-app/src/environments/environment.prod.ts"
                                 }
                             ],
                             "optimization": true,
@@ -59,44 +59,44 @@
                                     "maximumError": "10kb"
                                 }
                             ],
-                            "extraWebpackConfig": "apps/shell/webpack.prod.config.js"
+                            "extraWebpackConfig": "apps/ic-app/webpack.prod.config.js"
                         }
                     }
                 },
                 "serve": {
                     "builder": "ngx-build-plus:dev-server",
                     "options": {
-                        "browserTarget": "shell:build",
-                        "extraWebpackConfig": "apps/shell/webpack.config.js",
+                        "browserTarget": "ic-app:build",
+                        "extraWebpackConfig": "apps/ic-app/webpack.config.js",
                         "port": 4200
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "shell:build:production",
-                            "extraWebpackConfig": "apps/shell/webpack.prod.config.js"
+                            "browserTarget": "ic-app:build:production",
+                            "extraWebpackConfig": "apps/ic-app/webpack.prod.config.js"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "ngx-build-plus:extract-i18n",
                     "options": {
-                        "browserTarget": "shell:build"
+                        "browserTarget": "ic-app:build"
                     }
                 },
                 "lint": {
                     "builder": "@nrwl/linter:eslint",
                     "options": {
                         "lintFilePatterns": [
-                            "apps/shell/src/**/*.ts"
+                            "apps/ic-app/src/**/*.ts"
                         ]
                     }
                 },
                 "test": {
                     "builder": "ngx-build-plus:karma",
                     "options": {
-                        "jestConfig": "apps/shell/jest.config.js",
+                        "jestConfig": "apps/ic-app/jest.config.js",
                         "passWithNoTests": true,
-                        "extraWebpackConfig": "apps/shell/webpack.config.js"
+                        "extraWebpackConfig": "apps/ic-app/webpack.config.js"
                     }
                 }
             }
@@ -450,5 +450,5 @@
     "resolutions": {
         "webpack": "^5.0.0"
     },
-    "defaultProject": "shell"
+    "defaultProject": "ic-app"
 }
