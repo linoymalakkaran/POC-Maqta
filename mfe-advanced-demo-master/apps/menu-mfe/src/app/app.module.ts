@@ -6,7 +6,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 import {environment} from '../environments/environment';
 import {AppComponent} from './app.component';
-import {menuRouteModule} from './menu/menu-route.module';
+import {MenuRouteModule} from './menu/menu-route.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -16,7 +16,7 @@ import {menuRouteModule} from './menu/menu-route.module';
         StoreModule.forRoot({}),
         !environment.production ? StoreDevtoolsModule.instrument({maxAge: 25}) : [],
         // Local modules
-        menuRouteModule
+        MenuRouteModule
     ],
     providers: [],
     bootstrap: [AppComponent],

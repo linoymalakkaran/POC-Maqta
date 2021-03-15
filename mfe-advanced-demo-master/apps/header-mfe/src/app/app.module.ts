@@ -6,7 +6,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 import {environment} from '../environments/environment';
 import {AppComponent} from './app.component';
-import {headerRouteModule} from './header/header-route.module';
+import {HeaderRouteModule} from './header/header-route.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -16,7 +16,7 @@ import {headerRouteModule} from './header/header-route.module';
         StoreModule.forRoot({}),
         !environment.production ? StoreDevtoolsModule.instrument({maxAge: 25}) : [],
         // Local modules
-        headerRouteModule
+        HeaderRouteModule
     ],
     providers: [],
     bootstrap: [AppComponent],

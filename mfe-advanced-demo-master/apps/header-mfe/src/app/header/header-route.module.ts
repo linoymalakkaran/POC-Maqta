@@ -14,5 +14,5 @@ import {header_ROUTES} from './header.routes';
         headerStoreModule
     ]
 })
-export class headerRouteModule {
+export class HeaderRouteModule {
 }

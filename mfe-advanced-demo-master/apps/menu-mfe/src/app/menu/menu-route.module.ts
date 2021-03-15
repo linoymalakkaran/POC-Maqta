@@ -14,5 +14,5 @@ import {menu_ROUTES} from './menu.routes';
         menuStoreModule
     ]
 })
-export class menuRouteModule {
+export class MenuRouteModule {
 }
