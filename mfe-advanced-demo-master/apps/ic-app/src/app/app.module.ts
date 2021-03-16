@@ -14,6 +14,7 @@ import {AppEffects} from './app.effects';
 import {APP_ROUTES} from './app.routes';
 import {HomeComponent} from './home/home.component';
 import { TodoComponent } from './todo/todo.component';
+import {MFETodoComponent} from '@demo/mfe-todo-comp';
 
 @NgModule({
     bootstrap: [
@@ -22,7 +23,8 @@ import { TodoComponent } from './todo/todo.component';
     declarations: [
         AppComponent,
         HomeComponent,
-        TodoComponent
+        TodoComponent,
+        MFETodoComponent
     ],
     imports: [
         BrowserModule,

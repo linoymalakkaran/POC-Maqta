@@ -21,7 +21,8 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@demo/auth-lib": ["libs/auth-lib/src/index.ts"]
+            "@demo/auth-lib": ["libs/auth-lib/src/index.ts"],
+            "@demo/mfe-todo-comp": ["apps/todocomp-mfe/src/app/todo/todo.component.ts"]
         }
     },
     "exclude": [
