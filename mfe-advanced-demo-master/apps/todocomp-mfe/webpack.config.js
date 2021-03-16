@@ -21,7 +21,7 @@ module.exports = {
             name: "todocomp",
             filename: "todoCompRemoteEntry.js",
             exposes: {
-                './todoModule': './apps/todocomp-mfe/src/app/todo/todo.module.ts'
+                './TodoModule': './apps/todocomp-mfe/src/app/todo/todo.module.ts'
             },
 
             shared: {

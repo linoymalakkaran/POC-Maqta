@@ -24,7 +24,7 @@ module.exports = {
                     'header@http://localhost:4302/headerRemoteEntry.js',
                 'menu-remote': 'menu@http://localhost:4301/menuRemoteEntry.js',
                 'todocomp-remote':
-                    'todocomp-remote@http://localhost:4303/todoCompRemoteEntry.js',
+                    'todocomp@http://localhost:4303/todoCompRemoteEntry.js',
             },
             shared: {
                 '@angular/core': { singleton: true, strictVersion: false },
