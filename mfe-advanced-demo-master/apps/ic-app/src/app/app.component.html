@@ -21,6 +21,15 @@
                     IC To do
                 </a>
                 <a
+                *ngIf="(auth$ | async)?.authenticated"
+                class="nav-link"
+                routerLink="/mfetodo"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+            >
+                MFE To do
+            </a>
+                <a
                     *ngIf="(auth$ | async)?.authenticated"
                     class="nav-link"
                     routerLink="/counter"

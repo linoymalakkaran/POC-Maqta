@@ -19,9 +19,9 @@ module.exports = {
         new ModuleFederationPlugin({
 
             name: "todocomp",
-            filename: "todocompRemoteEntry.js",
+            filename: "todoCompRemoteEntry.js",
             exposes: {
-                './todoModule': './apps/todocomp-mfe/src//app/todo/todo.module.ts'
+                './todoModule': './apps/todocomp-mfe/src/app/todo/todo.module.ts'
             },
 
             shared: {

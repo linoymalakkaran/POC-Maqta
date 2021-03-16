@@ -1,1 +1,1 @@
-declare module 'todocomp-remote/todoModule'
+declare module 'todocomp-remote/TodoModule'

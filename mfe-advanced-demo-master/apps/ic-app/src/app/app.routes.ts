@@ -38,4 +38,10 @@ export const APP_ROUTES: Routes = [
         loadChildren: () => import('menu-remote/menu-route.module').then((m) => m.MenuRouteModule),
         canActivate: [AuthGuard],
     },
+    {
+        path: 'mfetodo',
+        // Lazy loaded remote module
+        loadChildren: () => import('todocomp-remote/TodoModule').then((m) => m.TodoModule),
+        canActivate: [AuthGuard],
+    },
 ];

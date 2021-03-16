@@ -10,7 +10,7 @@ const routes: Routes = [
       pathMatch: 'full',
   },
   {
-    path: 'todo',
+    path: 'mfetodo',
     component: TodoComponent
   },
 ];
