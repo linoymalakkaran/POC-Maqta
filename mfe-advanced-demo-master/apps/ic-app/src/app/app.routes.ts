@@ -3,6 +3,7 @@ import {Routes} from '@angular/router';
 import {AuthGuard} from '@demo/auth-lib';
 
 import {HomeComponent} from './home/home.component';
+import { TodoComponent } from './todo/todo.component';
 
 export const APP_ROUTES: Routes = [
     {
@@ -10,6 +11,10 @@ export const APP_ROUTES: Routes = [
         component: HomeComponent,
         pathMatch: 'full',
     },
+    {
+        path: 'todo',
+        component: TodoComponent
+      },
     {
         path: 'login',
         // Lazy loaded local module
