@@ -13,6 +13,7 @@ import {AppComponent} from './app.component';
 import {AppEffects} from './app.effects';
 import {APP_ROUTES} from './app.routes';
 import {HomeComponent} from './home/home.component';
+import { TodoComponent } from './todo/todo.component';
 
 @NgModule({
     bootstrap: [
@@ -20,7 +21,8 @@ import {HomeComponent} from './home/home.component';
     ],
     declarations: [
         AppComponent,
-        HomeComponent
+        HomeComponent,
+        TodoComponent
     ],
     imports: [
         BrowserModule,

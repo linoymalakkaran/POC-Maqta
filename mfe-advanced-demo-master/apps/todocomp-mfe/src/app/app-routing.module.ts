@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { TodoComponent } from './todo/todo.component';
+import { MFETodoComponent } from './todo/todo.component';
 
 const routes: Routes = [
   {
@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'mfetodo',
-    component: TodoComponent
+    component: MFETodoComponent
   },
 ];
 
