@@ -421,6 +421,105 @@
                     }
                 }
             }
+        },
+        "todocomp-mfe": {
+            "projectType": "application",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "style": "scss"
+                }
+            },
+            "root": "apps/todocomp-mfe",
+            "sourceRoot": "apps/todocomp-mfe/src",
+            "prefix": "mfe-nx-demo",
+            "architect": {
+                "build": {
+                    "builder": "ngx-build-plus:browser",
+                    "options": {
+                        "outputPath": "dist/apps/todocomp-mfe",
+                        "index": "apps/todocomp-mfe/src/index.html",
+                        "main": "apps/todocomp-mfe/src/main.ts",
+                        "polyfills": "apps/todocomp-mfe/src/polyfills.ts",
+                        "tsConfig": "apps/todocomp-mfe/tsconfig.app.json",
+                        "aot": true,
+                        "assets": [
+                            "apps/todocomp-mfe/src/favicon.ico",
+                            "apps/todocomp-mfe/src/assets"
+                        ],
+                        "styles": [
+                            "apps/todocomp-mfe/src/styles.scss"
+                        ],
+                        "scripts": [],
+                        "extraWebpackConfig": "apps/todocomp-mfe/webpack.config.js"
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/todocomp-mfe/src/environments/environment.ts",
+                                    "with": "apps/todocomp-mfe/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ],
+                            "extraWebpackConfig": "apps/todocomp-mfe/webpack.prod.config.js"
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "ngx-build-plus:dev-server",
+                    "options": {
+                        "browserTarget": "todocomp-mfe:build",
+                        "extraWebpackConfig": "apps/todocomp-mfe/webpack.config.js",
+                        "port": 4303
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "todocomp-mfe:build:production",
+                            "extraWebpackConfig": "apps/todocomp-mfe/webpack.prod.config.js"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "todocomp-mfe:build"
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "apps/todocomp-mfe/src/**/*.ts"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "ngx-build-plus:karma",
+                    "options": {
+                        "jestConfig": "apps/todocomp-mfe/jest.config.js",
+                        "passWithNoTests": true,
+                        "extraWebpackConfig": "apps/todocomp-mfe/webpack.config.js"
+                    }
+                }
+            }
         }
     },
     "cli": {

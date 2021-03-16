@@ -42,6 +42,9 @@
         },
         "ic-app": {
             "tags": []
+        },
+        "todocomp-mfe": {
+            "tags": []
         }
     }
 }
